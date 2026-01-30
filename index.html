@@ -2,24 +2,17 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Заявка на дизайн</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Заявка</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
             padding: 20px;
-        }
-        h2 {
-            text-align: center;
         }
         input, textarea, button {
             width: 100%;
-            padding: 12px;
             margin-top: 10px;
+            padding: 10px;
             font-size: 16px;
         }
         button {
@@ -30,30 +23,31 @@
         }
     </style>
 </head>
-
 <body>
-    <h2>📝 Заявка на дизайн</h2>
 
-    <input id="name" placeholder="Ваше имя">
-    <input id="phone" placeholder="Телефон">
-    <textarea id="comment" placeholder="Комментарий"></textarea>
+<h2>Оставить заявку</h2>
 
-    <button onclick="sendData()">Отправить</button>
+<input id="name" placeholder="Ваше имя">
+<input id="phone" placeholder="Телефон">
+<textarea id="comment" placeholder="Комментарий"></textarea>
 
-    <script>
-        const tg = window.Telegram.WebApp;
-        tg.expand();
+<button onclick="sendData()">Отправить</button>
 
-        function sendData() {
-            const data = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                comment: document.getElementById('comment').value
-            };
+<script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
 
-            tg.sendData(JSON.stringify(data));
-            tg.close();
-        }
-    </script>
+    function sendData() {
+        const data = {
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            comment: document.getElementById("comment").value
+        };
+
+        tg.sendData(JSON.stringify(data));
+        tg.close();
+    }
+</script>
+
 </body>
 </html>
