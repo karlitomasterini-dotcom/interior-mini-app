@@ -23,6 +23,11 @@
 
     <!-- логика -->
     <script src="script.js"></script>
+    <script>
+function sendForm() {
+    alert("Заявка отправлена! Мы скоро свяжемся с вами 💛");
+}
+</script>
 </body>
     <h2>Оставить заявку на дизайн интерьера</h2>
 
@@ -35,7 +40,7 @@ style="width:100%; padding:12px; margin-bottom:10px;">
 <textarea placeholder="Комментарий"
 style="width:100%; padding:12px; margin-bottom:10px;"></textarea>
 
-<button style="
+<button onclick="sendForm()" style="
 background:#c0392b;
 color:white;
 padding:15px;
@@ -47,5 +52,4 @@ border-radius:6px;
 Отправить заявку
 </button>
 
-</html>
 
