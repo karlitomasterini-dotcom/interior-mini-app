@@ -2,40 +2,58 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Дизайн интерьеров</title>
+    <title>Заявка на дизайн</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #2ea6ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial; padding:20px;">
+<body>
+    <h2>📝 Заявка на дизайн</h2>
 
-<h2>Оставить заявку на дизайн интерьера</h2>
+    <input id="name" placeholder="Ваше имя">
+    <input id="phone" placeholder="Телефон">
+    <textarea id="comment" placeholder="Комментарий"></textarea>
 
-<input id="name" type="text" placeholder="Ваше имя"
-style="width:100%; padding:12px; margin-bottom:10px;">
+    <button onclick="sendData()">Отправить</button>
 
-<input id="phone" type="tel" placeholder="Телефон"
-style="width:100%; padding:12px; margin-bottom:10px;">
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
 
-<textarea id="comment" placeholder="Комментарий"
-style="width:100%; padding:12px; margin-bottom:10px;"></textarea>
+        function sendData() {
+            const data = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                comment: document.getElementById('comment').value
+            };
 
-<button onclick="sendForm()" style="
-background:#c0392b;
-color:white;
-padding:15px;
-font-size:18px;
-width:100%;
-border:none;
-border-radius:6px;
-">
-Отправить заявку
-</button>
-
-<script>
-function sendForm() {
-    alert("Заявка отправлена! Мы скоро свяжемся с вами 💛");
-}
-</script>
-
+            tg.sendData(JSON.stringify(data));
+            tg.close();
+        }
+    </script>
 </body>
 </html>
