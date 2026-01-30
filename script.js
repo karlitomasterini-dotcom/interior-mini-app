@@ -1,21 +1,20 @@
 let tg = window.Telegram.WebApp;
-tg.expand();
+tg.ready();
 
 function sendForm() {
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
-    let area = document.getElementById("area").value;
-
-    if (!name || !phone || !area) {
-        alert("Пожалуйста, заполните все поля");
-        return;
-    }
+    alert("КНОПКА НАЖАЛАСЬ ✅");
 
     let data = {
-        name: name,
-        phone: phone,
-        area: area
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        area: document.getElementById("area").value
     };
 
+    alert("ДАННЫЕ СОБРАНЫ ✅");
+
     tg.sendData(JSON.stringify(data));
+
+    alert("ДАННЫЕ ОТПРАВЛЕНЫ В TELEGRAM ✅");
+
+    tg.close();
 }
