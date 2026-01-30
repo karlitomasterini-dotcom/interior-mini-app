@@ -4,40 +4,21 @@
     <meta charset="UTF-8">
     <title>Дизайн интерьеров</title>
 
-    <!-- подключаем стили -->
-    <link rel="stylesheet" href="style.css">
-
     <!-- Telegram Mini App API -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
-<body>
 
-    <h1>🏠 Дизайн интерьеров</h1>
-    <p>Оставьте заявку на дизайн-проект</p>
+<body style="font-family: Arial; padding:20px;">
 
-    <input id="name" placeholder="Ваше имя">
-    <input id="phone" placeholder="Телефон">
-    <input id="area" placeholder="Метраж (м²)">
+<h2>Оставить заявку на дизайн интерьера</h2>
 
-    <button onclick="sendForm()">Отправить заявку</button>
-
-    <!-- логика -->
-    <script src="script.js"></script>
-    <script>
-function sendForm() {
-    alert("Заявка отправлена! Мы скоро свяжемся с вами 💛");
-}
-</script>
-</body>
-    <h2>Оставить заявку на дизайн интерьера</h2>
-
-<input type="text" placeholder="Ваше имя"
+<input id="name" type="text" placeholder="Ваше имя"
 style="width:100%; padding:12px; margin-bottom:10px;">
 
-<input type="tel" placeholder="Телефон"
+<input id="phone" type="tel" placeholder="Телефон"
 style="width:100%; padding:12px; margin-bottom:10px;">
 
-<textarea placeholder="Комментарий"
+<textarea id="comment" placeholder="Комментарий"
 style="width:100%; padding:12px; margin-bottom:10px;"></textarea>
 
 <button onclick="sendForm()" style="
@@ -51,5 +32,15 @@ border-radius:6px;
 ">
 Отправить заявку
 </button>
+
+<script>
+function sendForm() {
+    alert("Заявка отправлена! Мы скоро свяжемся с вами 💛");
+}
+</script>
+
+</body>
+</html>
+
 
 
