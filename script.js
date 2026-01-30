@@ -17,6 +17,6 @@ function sendForm() {
         area: area
     };
 
-    tg.sendData(JSON.stringify(data)); // отправка данных в Telegram
-    tg.close(); // закрываем мини-приложение
+    tg.sendData(JSON.stringify(data)); // Отправка данных в Telegram
+    tg.close(); // Закрываем мини-приложение
 }
