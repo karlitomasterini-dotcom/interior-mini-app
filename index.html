@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Заявка</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        input, textarea, button {
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            background: #2ea6ff;
-            color: white;
-            border: none;
-            border-radius: 6px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Заявка</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+
+input, textarea, button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background: #2ea6ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+</style>
 </head>
+
 <body>
 
 <h2>Оставить заявку</h2>
@@ -34,19 +38,25 @@
 <button onclick="sendData()">Отправить</button>
 
 <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand();
+const tg = window.Telegram.WebApp;
+tg.expand();
 
-    function sendData() {
-        const data = {
-            name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value,
-            comment: document.getElementById("comment").value
-        };
+function sendData() {
 
-        tg.sendData(JSON.stringify(data));
+    const data = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        comment: document.getElementById("comment").value
+    };
+
+    console.log("SEND:", data);
+
+    tg.sendData(JSON.stringify(data));
+
+    setTimeout(() => {
         tg.close();
-    }
+    }, 300);
+}
 </script>
 
 </body>
